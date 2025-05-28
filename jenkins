@@ -30,7 +30,7 @@ pipeline{
 		success {
 			echo 'Successfuly deployed'
 		}
-		error{
+		failure{
 			echo 'Error in Deployment'
 		}
 	}
