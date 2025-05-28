@@ -1,7 +1,7 @@
 pipeline{
-	agent:any
+	agent any
 	tools{
-		maven:'Maven'
+		maven 'Maven'
 	}
 	stages{
 		stage('Checkout'){
@@ -10,14 +10,20 @@ pipeline{
 			}
 		}
 		stage('Build') {
-			sh 'mvn clean pakcage'
+			steps{
+				sh 'mvn clean pakcage'
+			}
 		}
 		stage('Test') {
-			sh 'mvn test'
+			steps {
+				sh 'mvn test'
+			}
 		}
 		
 		stage('Run Application'){
-			sh 'java -jar target/01MavenApp-1.0-SNAPSHOT.jar'
+			steps {
+				sh 'java -jar target/01MavenApp-1.0-SNAPSHOT.jar'
+			}
 		}
 	}
 	post {
